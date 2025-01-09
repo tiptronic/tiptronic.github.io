@@ -1,0 +1,6 @@
+:root {
+    --base-size-16: 1.5rem;
+}
+img {
+    max-height: 400px;
+}
