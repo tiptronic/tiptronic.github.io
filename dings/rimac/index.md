@@ -4,7 +4,6 @@
 
 OS ist übrigens die Abkürzung 'Operating System' also bei Dir Catalina (10.15.7) - ist mir beim Durchlesen aufgefallen...
 
-
 - so wie ich mir das vorgestellt hab geht's schon mal nicht :( - mein iMac ist einfach zuuuu alt und der sieht die Festplatte nicht (:( - ich hatte mich schon so gefreut)
 - allerdings habe ich einen Plan B + C + D)
 - Plan B: Ich habe mal einen Thunderbolt auf USB Adapter bestellt und werde es dann nochmal versuchen (sieht aber eher auch nicht so prickelnd aus)
