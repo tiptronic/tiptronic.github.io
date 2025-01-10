@@ -4,3 +4,9 @@
 img {
     max-height: 400px;
 }
+
+.github-markdown-body small {
+    font-size: 80%;
+    font-style: italic;
+  }
+  

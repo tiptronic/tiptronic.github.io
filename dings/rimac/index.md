@@ -1,26 +1,27 @@
 
-[Seite 2](index2.html)
+[Seite 1](index.html) | [Seite 2](index2.html)
 
 ----
 
-## Also los:
+## Grüß Gott:
 
-OS ist übrigens die Abkürzung 'Operating System' also bei Dir Catalina (10.15.7) - ist mir beim Durchlesen aufgefallen...
-
-- so wie ich mir das vorgestellt hab geht's schon mal nicht :( - mein iMac ist einfach zuuuu alt und der sieht die Festplatte nicht (:( - ich hatte mich schon so gefreut)
-- allerdings habe ich einen Plan B + C + D)
-- Plan B: Ich habe mal einen Thunderbolt auf USB Adapter bestellt und werde es dann nochmal versuchen (sieht aber eher auch nicht so prickelnd aus)
-- Plan C: Ich habe noch ein altes Macbook Pro (2012) und werde es damit versuchen
-- Plan D: Ich versuche das OS via USB-2 auf eine externe Festplatte zu installieren und dann von dort zu booten (das sollte eigentlich klappen - dürfte allerdings ewig dauern)
-
-Und weil ich eh unfit bin, hab ich das jetzt einfach mal mit Plan-D angefangen (also mit dem normalen USB-2)... Und siehe da - schon fertig und der iMac läuft von der externen Platte. Via USB-C sollte das also rucki-zucki gehen... und ggf. bootet der sogar schneller von der externen Disk - aber das wäre ja erstmal wurscht...
-
+<small>OS ist übrigens die Abkürzung 'Operating System' also bei Dir Catalina (10.15.7) - ist mir beim Durchlesen aufgefallen...</small>
 
 ### Grundsätzlich:
 
-Ich weiß nicht, was für Anschlüsse dein iMac hat - aber wenn er USB-C hat, dann wäre das ideal!!!  (Die Infos auf den Apple-Seiten sind TOTAL widersprüchlich - überall steht Thunderbolt/USB-C, aber die Bilder zeigen 2 Mini-Displayport Anschlüsse... - auf der Schnellstart-Anleitung hingegen sind zwei USB-C Anschlüsse abgebildet... - ich gehe mal davon aus, dass es USB-C ist... - oder Du schickst mir mal ein Bild von der Rückseite deines iMacs...).  Oder Du sagst mir, welche es sind -> Vergleichsbilder sind unten...
+Ich weiß nicht 100%ig, was für Anschlüsse dein iMac hat - aber wenn er USB-C hat, dann wäre das ideal!!!  (Die Infos auf den Apple-Seiten sind TOTAL widersprüchlich - überall steht Thunderbolt/USB-C, aber die Bilder zeigen 2 Mini-Displayport Anschlüsse... - auf der Schnellstart-Anleitung hingegen sind zwei USB-C Anschlüsse abgebildet... - ich gehe mal davon aus, dass es USB-C ist... - oder Du schickst mir mal ein Bild von der Rückseite deines iMacs...).  Oder Du sagst mir, welche es sind -> Vergleichsbilder sind unten...
 
 Das Ganze ist **WIRKLICH** super-einfach - du musst nur die SSD formatieren und dann das OS installieren. (Die Anleitung ist eigentlich kompliziereter, als das Ganze in Wirklichkeit ist...)
+
+Falls Dein iMac nicht mehr startet, kannst Du den aber auch wie eine externe Festplatte benutzen... Wie das geht steht hier:
+
+https://support.apple.com/de-de/guide/mac-help/mchlp1443/mac
+
+Anschliessend ist die Prozedere quasi wie auf [Seite 2](index2.html).
+
+> Da ich eben nicht weiß, welche Anschlüsse der iMac eben hat, kann ich Dir auch nicht sagen, was Du für ein Kabel brauchst - wenn Du ein passendes  Kabel nicht hast, dann schick mir ein Bild von den Anschlüssen und ich sag Dir, was Du brauchst... (vermutlich bekommst Du das aber auch selber raus :))
+
+## Anleitung:
 
 ### 1. SSD formatieren:
 Zuerst muss die T7 formatiert werden.

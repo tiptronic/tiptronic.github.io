@@ -1,4 +1,4 @@
-[Seite 1](index.html)
+[Seite 1](index.html) | [Seite 2](index2.html)
 
 ----
 
