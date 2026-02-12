@@ -4,77 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mail Peeker — Privacy Policy</title>
+    <link rel="stylesheet" href="../theme.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="header">
-    <h1>Privacy Policy</h1>
-    <img src="logo.svg" alt="Mail Peeker" width="80" height="80" class="logo">
-    <p class="subtitle">Mail Peeker — Stream Deck Plugin &middot; Last updated: February 12, 2026</p>
+<header>
+    <h1><a href="../index.html">tiptronic</a></h1>
+    <nav class="header-nav" aria-label="Main navigation">
+        <a href="../index.html" class="nav-link">Home</a>
+    </nav>
+</header>
+
+<div class="mp-content">
+    <div class="mp-header">
+        <h1>Privacy Policy</h1>
+        <img src="logo.svg" alt="Mail Peeker" width="80" height="80" class="logo">
+        <p class="subtitle">Mail Peeker — Stream Deck Plugin &middot; Last updated: February 12, 2026</p>
+    </div>
+
+    <h2>What Mail Peeker Does</h2>
+    <p>Mail Peeker is a Stream Deck plugin that connects to your email accounts via IMAP to display recent email subjects and sender information on your Stream Deck keys. It supports password-based and OAuth2 authentication (Google, Microsoft).</p>
+
+    <h2>Data We Collect</h2>
+    <div class="highlight">
+        <strong>Mail Peeker does not collect, transmit, or store any personal data on external servers.</strong> All data stays on your local machine.
+    </div>
+
+    <p>Specifically:</p>
+    <ul>
+        <li><strong>Email content:</strong> Email metadata (subject, sender, date) is fetched via IMAP and stored only in local memory and local cache files on your computer. Email bodies are never accessed.</li>
+        <li><strong>Authentication credentials:</strong> Passwords and OAuth tokens are stored locally in the Stream Deck application's settings storage on your machine. They are never transmitted to any server other than the email provider's IMAP and OAuth servers.</li>
+        <li><strong>OAuth tokens:</strong> When using Google or Microsoft sign-in, tokens are obtained directly from the provider and stored locally. The plugin acts as a confidential OAuth client — tokens are exchanged via a localhost callback server on your machine.</li>
+        <li><strong>No analytics or tracking in the plugin:</strong> The Mail Peeker plugin itself does not include any analytics, telemetry, crash reporting, or tracking of any kind.</li>
+        <li><strong>No external servers:</strong> Mail Peeker does not operate any backend servers. All communication is directly between your computer and your email provider.</li>
+    </ul>
+
+    <h2>Third-Party Services</h2>
+    <p>Mail Peeker communicates directly with the following services, only when you configure an account:</p>
+    <ul>
+        <li><strong>Google:</strong> OAuth2 authentication (<code>accounts.google.com</code>), user profile (<code>googleapis.com</code>), and IMAP (<code>imap.gmail.com</code>)</li>
+        <li><strong>Microsoft:</strong> OAuth2 authentication (<code>login.microsoftonline.com</code>), user profile (<code>graph.microsoft.com</code>), and IMAP (<code>outlook.office365.com</code>)</li>
+        <li><strong>Other IMAP providers:</strong> Any IMAP server you configure (e.g., your company's mail server)</li>
+    </ul>
+    <p>These services have their own privacy policies. Mail Peeker only requests the minimum permissions needed to read email metadata via IMAP.</p>
+
+    <h2>Google API Scopes</h2>
+    <p>Mail Peeker requests the following Google API scopes:</p>
+    <ul>
+        <li><code>https://mail.google.com/</code> — Required for IMAP access (Google mandates this scope for all IMAP clients using OAuth; there is no read-only IMAP scope)</li>
+        <li><code>openid email profile</code> — To identify your account (email address and display name)</li>
+    </ul>
+    <p>Despite the broad scope name, Mail Peeker only reads email metadata (subject, sender, date) via IMAP. It does not read email bodies, send emails, delete emails, or modify your mailbox in any way.</p>
+
+    <h2>Data Storage</h2>
+    <ul>
+        <li>All data is stored locally on your computer within the Stream Deck application's data directory</li>
+        <li>Email cache files are stored in the plugin's local data folder</li>
+        <li>You can delete all stored data by removing the plugin from Stream Deck</li>
+    </ul>
+
+    <h2>Data Sharing</h2>
+    <p>Mail Peeker does not share any data with anyone. There are no third-party analytics, advertising, or data processing services.</p>
+
+    <h2>Your Rights</h2>
+    <p>Since all data is stored locally on your machine, you have full control over it. You can:</p>
+    <ul>
+        <li>Remove any email account from the plugin settings at any time</li>
+        <li>Revoke OAuth access via your Google or Microsoft account settings</li>
+        <li>Uninstall the plugin to remove all locally stored data</li>
+    </ul>
+
+    <h2>Website Analytics</h2>
+    <p>This website (tiptronic.github.io) uses <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> for basic traffic analytics. GoatCounter is privacy-friendly and:</p>
+    <ul>
+        <li>Does not use cookies</li>
+        <li>Does not collect personal data</li>
+        <li>Does not track users across sites</li>
+        <li>Only counts page views, referrers, and basic browser/country information</li>
+        <li>Is fully GDPR compliant without a consent banner</li>
+    </ul>
+    <p>This analytics applies only to the website, not to the Mail Peeker plugin itself. The plugin contains no analytics of any kind.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If this policy changes, the updated version will be published at this URL. Material changes will be noted in the plugin's release notes.</p>
+
+    <h2>Contact</h2>
+    <p>For questions about this privacy policy, contact the developer via the plugin's GitHub repository.</p>
 </div>
 
-<h2>What Mail Peeker Does</h2>
-<p>Mail Peeker is a Stream Deck plugin that connects to your email accounts via IMAP to display recent email subjects and sender information on your Stream Deck keys. It supports password-based and OAuth2 authentication (Google, Microsoft).</p>
-
-<h2>Data We Collect</h2>
-<div class="highlight">
-    <strong>Mail Peeker does not collect, transmit, or store any personal data on external servers.</strong> All data stays on your local machine.
-</div>
-
-<p>Specifically:</p>
-<ul>
-    <li><strong>Email content:</strong> Email metadata (subject, sender, date) is fetched via IMAP and stored only in local memory and local cache files on your computer. Email bodies are never accessed.</li>
-    <li><strong>Authentication credentials:</strong> Passwords and OAuth tokens are stored locally in the Stream Deck application's settings storage on your machine. They are never transmitted to any server other than the email provider's IMAP and OAuth servers.</li>
-    <li><strong>OAuth tokens:</strong> When using Google or Microsoft sign-in, tokens are obtained directly from the provider and stored locally. The plugin acts as a confidential OAuth client — tokens are exchanged via a localhost callback server on your machine.</li>
-    <li><strong>No analytics or tracking:</strong> Mail Peeker does not include any analytics, telemetry, crash reporting, or tracking of any kind.</li>
-    <li><strong>No external servers:</strong> Mail Peeker does not operate any backend servers. All communication is directly between your computer and your email provider.</li>
-</ul>
-
-<h2>Third-Party Services</h2>
-<p>Mail Peeker communicates directly with the following services, only when you configure an account:</p>
-<ul>
-    <li><strong>Google:</strong> OAuth2 authentication (<code>accounts.google.com</code>), user profile (<code>googleapis.com</code>), and IMAP (<code>imap.gmail.com</code>)</li>
-    <li><strong>Microsoft:</strong> OAuth2 authentication (<code>login.microsoftonline.com</code>), user profile (<code>graph.microsoft.com</code>), and IMAP (<code>outlook.office365.com</code>)</li>
-    <li><strong>Other IMAP providers:</strong> Any IMAP server you configure (e.g., your company's mail server)</li>
-</ul>
-<p>These services have their own privacy policies. Mail Peeker only requests the minimum permissions needed to read email metadata via IMAP.</p>
-
-<h2>Google API Scopes</h2>
-<p>Mail Peeker requests the following Google API scopes:</p>
-<ul>
-    <li><code>https://mail.google.com/</code> — Required for IMAP access (Google mandates this scope for all IMAP clients using OAuth; there is no read-only IMAP scope)</li>
-    <li><code>openid email profile</code> — To identify your account (email address and display name)</li>
-</ul>
-<p>Despite the broad scope name, Mail Peeker only reads email metadata (subject, sender, date) via IMAP. It does not read email bodies, send emails, delete emails, or modify your mailbox in any way.</p>
-
-<h2>Data Storage</h2>
-<ul>
-    <li>All data is stored locally on your computer within the Stream Deck application's data directory</li>
-    <li>Email cache files are stored in the plugin's local data folder</li>
-    <li>You can delete all stored data by removing the plugin from Stream Deck</li>
-</ul>
-
-<h2>Data Sharing</h2>
-<p>Mail Peeker does not share any data with anyone. There are no third-party analytics, advertising, or data processing services.</p>
-
-<h2>Your Rights</h2>
-<p>Since all data is stored locally on your machine, you have full control over it. You can:</p>
-<ul>
-    <li>Remove any email account from the plugin settings at any time</li>
-    <li>Revoke OAuth access via your Google or Microsoft account settings</li>
-    <li>Uninstall the plugin to remove all locally stored data</li>
-</ul>
-
-<h2>Changes to This Policy</h2>
-<p>If this policy changes, the updated version will be published at this URL. Material changes will be noted in the plugin's release notes.</p>
-
-<h2>Contact</h2>
-<p>For questions about this privacy policy, contact the developer via the plugin's GitHub repository.</p>
-
-<div class="footer">
+<footer>
     <a href="terms-of-service.html">Terms of Service</a> &middot; <a href="privacy-policy.html">Privacy Policy</a>
-</div>
-
+</footer>
+<script data-goatcounter="https://tiptronic.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

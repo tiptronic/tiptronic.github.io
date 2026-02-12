@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tiptronic</title>
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1><a href="index.html">tiptronic</a></h1>
+        <nav class="header-nav" aria-label="Main navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="docs.html" class="nav-link active">Docs</a>
+            <a href="https://github.com/tiptronic" class="nav-link" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+    </header>
+
+    <div class="docs-layout">
+        <nav class="sidebar" aria-label="Documentation navigation">
+            <details class="nav-section" data-section="traccar">
+                <summary><h3>Traccar</h3></summary>
+                <div class="nav-links">
+                    <a href="docs.html?post=traccar/index" class="nav-link">Overview</a>
+                    <a href="docs.html?post=traccar/installation" class="nav-link">Installation</a>
+                    <a href="docs.html?post=traccar/installation/container-manager" class="nav-link sub">Container Manager</a>
+                    <a href="docs.html?post=traccar/installation/docker-compose" class="nav-link sub">Docker Compose</a>
+                    <a href="docs.html?post=traccar/configuration" class="nav-link">Configuration</a>
+                    <a href="docs.html?post=traccar/integration" class="nav-link">Integration</a>
+                </div>
+            </details>
+            <details class="nav-section" data-section="synology">
+                <summary><h3>Synology</h3></summary>
+                <div class="nav-links">
+                    <a href="docs.html?post=synology/portainer" class="nav-link">Portainer</a>
+                </div>
+            </details>
+        </nav>
+
+        <main id="main-content" class="doc-content" aria-live="polite">
+            <div class="loading" role="status">
+                <span>Loading...</span>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // Configure marked
+            marked.setOptions({
+                gfm: true,
+                breaks: false
+            });
+
+            // Custom renderer
+            const renderer = {
+                code({ text, lang }) {
+                    const escapedCode = escapeHtml(text);
+                    return `<pre tabindex="0"><code class="language-${lang || 'text'}">${escapedCode}</code></pre>`;
+                },
+
+                image({ href, title, text }) {
+                    const alt = text || title || 'Image';
+                    const titleAttr = title ? ` title="${escapeHtml(title)}"` : '';
+                    return `<img src="${href}" alt="${escapeHtml(alt)}"${titleAttr} loading="lazy">`;
+                },
+
+                link({ href, title, text }) {
+                    // Convert internal view.html links to docs.html links
+                    if (href && href.startsWith('view.html?post=')) {
+                        href = href.replace('view.html?post=', 'docs.html?post=');
+                    }
+
+                    const isExternal = href && href.startsWith('http') && !href.includes(window.location.hostname);
+                    const titleAttr = title ? ` title="${escapeHtml(title)}"` : '';
+
+                    if (isExternal) {
+                        return `<a href="${href}"${titleAttr} target="_blank" rel="noopener noreferrer">${text}<span class="visually-hidden"> (opens in new tab)</span></a>`;
+                    }
+                    return `<a href="${href || ''}"${titleAttr}>${text}</a>`;
+                }
+            };
+
+            marked.use({ renderer });
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function getPostSlug() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('post') || 'traccar/index';
+            }
+
+            function updateActiveNav(slug) {
+                // Close all sections first
+                document.querySelectorAll('.nav-section').forEach(section => {
+                    section.open = false;
+                });
+
+                // Find matching link and expand its section
+                document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    if (href && href.includes('?')) {
+                        const linkSlug = new URLSearchParams(href.split('?')[1]).get('post');
+                        if (linkSlug === slug) {
+                            link.classList.add('active');
+                            // Expand parent details
+                            const details = link.closest('details');
+                            if (details) details.open = true;
+                        }
+                    }
+                });
+
+                // Also open section if slug starts with section name
+                const sectionName = slug.split('/')[0];
+                const section = document.querySelector(`[data-section="${sectionName}"]`);
+                if (section) section.open = true;
+            }
+
+            async function loadPost() {
+                const slug = getPostSlug();
+                const contentEl = document.getElementById('main-content');
+
+                updateActiveNav(slug);
+
+                try {
+                    const response = await fetch(`posts/${slug}.md`);
+
+                    if (!response.ok) {
+                        throw new Error(`Document not found: ${slug}`);
+                    }
+
+                    const markdown = await response.text();
+                    const html = marked.parse(markdown);
+
+                    // Extract title from first h1
+                    const titleMatch = markdown.match(/^#\s+(.+)$/m);
+                    const title = titleMatch ? titleMatch[1] : slug;
+
+                    document.title = `${title} - tiptronic`;
+
+                    contentEl.innerHTML = html;
+
+                    // Wrap tables for scrolling
+                    contentEl.querySelectorAll('table').forEach(table => {
+                        const wrapper = document.createElement('div');
+                        wrapper.style.overflowX = 'auto';
+                        wrapper.setAttribute('tabindex', '0');
+                        table.parentNode.insertBefore(wrapper, table);
+                        wrapper.appendChild(table);
+                    });
+
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+
+                } catch (error) {
+                    contentEl.innerHTML = `
+                        <div class="error" role="alert">
+                            <strong>Error:</strong> ${escapeHtml(error.message)}
+                            <p><a href="docs.html">Return to docs home</a></p>
+                        </div>
+                    `;
+                    document.title = 'Error - tiptronic';
+                }
+            }
+
+            // Handle navigation without page reload
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href^="docs.html?"]');
+                if (link) {
+                    e.preventDefault();
+                    history.pushState(null, '', link.href);
+                    loadPost();
+                    if (window.goatcounter) goatcounter.count({ path: link.getAttribute('href') });
+                }
+            });
+
+            window.addEventListener('popstate', loadPost);
+
+            // Animate nav sections on toggle
+            document.querySelectorAll('.nav-section').forEach(details => {
+                const content = details.querySelector('.nav-links');
+
+                details.addEventListener('click', (e) => {
+                    if (e.target.closest('summary')) {
+                        e.preventDefault();
+
+                        if (details.open) {
+                            // Closing: animate then close
+                            content.style.animation = 'slideUp 0.2s ease-out forwards';
+                            content.addEventListener('animationend', () => {
+                                details.open = false;
+                                content.style.animation = '';
+                            }, { once: true });
+                        } else {
+                            // Opening: open then animate
+                            details.open = true;
+                            content.style.animation = 'none';
+                            content.offsetHeight; // Trigger reflow
+                            content.style.animation = 'slideDown 0.2s ease-out';
+                        }
+                    }
+                });
+            });
+
+            // Initial load
+            loadPost();
+        })();
+    </script>
+<script data-goatcounter="https://tiptronic.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
