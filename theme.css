@@ -151,12 +151,12 @@ footer {
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
-    transition: box-shadow 0.2s;
+    transition: background 0.2s;
     cursor: pointer;
 }
 
 .post-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    background: #1a2844;
 }
 
 .post-card h3 {
@@ -178,7 +178,7 @@ footer {
 }
 
 .post-card:hover .card-link {
-    color: var(--accent);
+    color: var(--text);
 }
 
 .post-card p {
