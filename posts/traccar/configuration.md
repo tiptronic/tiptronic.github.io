@@ -131,5 +131,5 @@ Configure alerts for:
 
 ---
 
-- [Back to Installation](docs.html?post=traccar/installation)
-- [Integration Guide](docs.html?post=traccar/integration)
+- [Back to Installation](#traccar/installation)
+- [Integration Guide](#traccar/integration)

@@ -101,4 +101,4 @@ sudo docker-compose up -d
 
 ---
 
-[Back to Installation Overview](docs.html?post=traccar/installation)
+[Back to Installation Overview](#traccar/installation)

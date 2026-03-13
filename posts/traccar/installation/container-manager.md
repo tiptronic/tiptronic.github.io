@@ -80,4 +80,4 @@ You can create this file using:
 
 ---
 
-[Back to Installation Overview](docs.html?post=traccar/installation)
+[Back to Installation Overview](#traccar/installation)

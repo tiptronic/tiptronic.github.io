@@ -133,5 +133,5 @@ OwnTracks App (Phone)
 
 ---
 
-- [Back to Installation](docs.html?post=traccar/installation)
-- [Configuration Guide](docs.html?post=traccar/configuration)
+- [Back to Installation](#traccar/installation)
+- [Configuration Guide](#traccar/configuration)

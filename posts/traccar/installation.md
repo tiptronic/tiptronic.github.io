@@ -10,7 +10,7 @@ This guide walks through installing Traccar GPS tracking server on a Synology NA
 
 ## Choose Your Method
 
-### [Synology Container Manager (GUI)](docs.html?post=traccar/installation/container-manager)
+### [Synology Container Manager (GUI)](#traccar/installation/container-manager)
 
 Best for: Users who prefer the graphical interface
 
@@ -18,7 +18,7 @@ Best for: Users who prefer the graphical interface
 - Point-and-click setup
 - Easy to manage via DSM
 
-### [Docker Compose via SSH](docs.html?post=traccar/installation/docker-compose)
+### [Docker Compose via SSH](#traccar/installation/docker-compose)
 
 Best for: Users comfortable with command line
 
@@ -97,5 +97,5 @@ netstat -tlnp | grep -E "8082|5055"
 
 ## Next Steps
 
-- [Configuration](docs.html?post=traccar/configuration) - Database, protocols, and settings
-- [Integration](docs.html?post=traccar/integration) - Connect with OwnTracks and other apps
+- [Configuration](#traccar/configuration) - Database, protocols, and settings
+- [Integration](#traccar/integration) - Connect with OwnTracks and other apps

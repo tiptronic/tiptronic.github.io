@@ -11,9 +11,9 @@
 
 ## Guides
 
-- [Installation](docs.html?post=traccar/installation) - Docker setup options (GUI or SSH)
-- [Configuration](docs.html?post=traccar/configuration) - Database, protocols, and settings
-- [Integration](docs.html?post=traccar/integration) - Connect with OwnTracks and other apps
+- [Installation](#traccar/installation) - Docker setup options (GUI or SSH)
+- [Configuration](#traccar/configuration) - Database, protocols, and settings
+- [Integration](#traccar/integration) - Connect with OwnTracks and other apps
 
 ## Quick Reference
 
